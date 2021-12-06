@@ -4,7 +4,10 @@ function MyShoppingCart(props) {
 
   const products = props.cart.map((ele, index) => {
     return (
-        <li>{ele.name} {ele.price}</li>
+        <li
+        onClick={() => props.removeFromCart(index)}
+        key = {index}
+        >{ele.name} {ele.price}</li>
 
     )
   })

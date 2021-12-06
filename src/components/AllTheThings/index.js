@@ -4,8 +4,10 @@ function AllTheThings(props) {
 
   const products = props.products.map((ele, index) => {
     return (
-        <li>{ele.name} {ele.price}</li>
-
+        <li 
+        onClick={() => props.addToCart(ele)}
+        key = {index}
+        >{ele.name} {ele.price}</li>
     )
   })
   return (

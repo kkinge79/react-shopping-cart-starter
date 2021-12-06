@@ -8,22 +8,18 @@ import productsArr from './products';
 
 export default function App() {
   const [products, setProducts] = useState(productsArr);  
-  const [cart, setCart] = useState([{
-    name: 'banana',
-    price: 0.99,
-    description: 'full of potassium'
-  }]);
+  const [cart, setCart] = useState([]);
 
 
 const addToCart = (product) => {
   return(
-    setCart(...product)
+    setCart([...cart, product])
   )
 }
 
 const removeFromCart = (index) => {
   return(
-    setCart(cart.filter(product => !!cart[index]))
+    setCart(cart.filter(product => product !== cart[index]))
   )
 }
 
@@ -34,9 +30,11 @@ const removeFromCart = (index) => {
       <div className="products">
         <AllTheThings 
           products = {products}
+          addToCart = {addToCart}
         />
         <MyShoppingCart 
           cart = {cart}
+          removeFromCart = {removeFromCart}
         />
       </div>
     </div>
