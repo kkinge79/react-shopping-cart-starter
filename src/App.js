@@ -19,7 +19,7 @@ const addToCart = (product) => {
 
 const removeFromCart = (index) => {
   return(
-    setCart(cart.filter(product => product !== cart[index]))
+    setCart(cart.filter((product, i) => i !== index))
   )
 }
 
